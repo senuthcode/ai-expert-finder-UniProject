@@ -72,4 +72,4 @@ python demo.py --query "React frontend developer with TypeScript and state manag
 ## 📜 License
 Distributed under the MIT License. See `LICENSE` for details.
 
-<img width="471" height="353" alt="image" src="https://github.com/user-attachments/assets/7848621f-bd10-49eb-80a5-e6a8eccdeab3" />
+
