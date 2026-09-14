@@ -17,6 +17,50 @@ Traditional Applicant Tracking Systems (ATS) rely heavily on exact keyword match
 
 ---
 
+## 🏗️ System Architecture
+
+```
+                                      ┌────────────────────────┐
+                                      │  Raw Resumes (13.5k)   │
+                                      └───────────┬────────────┘
+                                                  │
+                                                  ▼
+                                      ┌────────────────────────┐
+                                      │   PII Masking & Clean  │
+                                      │ (Emails, Phones, URLs) │
+                                      └───────────┬────────────┘
+                                                  │
+                                                  ▼
+                                      ┌────────────────────────┐
+                                      │ Dense Embeddings Model │
+                                      │  (all-MiniLM-L6-v2)    │
+                                      └───────────┬────────────┘
+                                                  │
+                                                  ▼
+                                      ┌────────────────────────┐
+                                      │   ChromaDB Vector DB   │
+                                      │   (HNSW Cosine Index)  │
+                                      └───────────┬────────────┘
+                                                  │
+[Job Description / Query] ────────► [Semantic Search]
+                                                  │
+                                                  ▼  Top-K Candidates
+                                      ┌────────────────────────┐
+                                      │    LLM-as-a-Judge      │
+                                      │   (Skill Extraction &  │
+                                      │  Relevance Re-Ranking) │
+                                      └───────────┬────────────┘
+                                                  │
+                                                  ▼
+                                      ┌────────────────────────┐
+                                      │ Ranked Candidate List  │
+                                      │  + Scored Fit Metric   │
+                                      └────────────────────────┘
+```
+<img width="471" height="598" alt="image" src="https://github.com/user-attachments/assets/02677b65-5194-44a6-952c-4f704ce3d5cb" />
+
+---
+
 ## 📊 Benchmark Results
 
 Evaluated across **13,389 resumes** spanning **43 job categories**:
