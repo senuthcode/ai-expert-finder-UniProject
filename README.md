@@ -19,45 +19,27 @@ Traditional Applicant Tracking Systems (ATS) rely heavily on exact keyword match
 
 ## 🏗️ System Architecture
 
+```mermaid
+flowchart TD
+    A[📄 Raw Resumes<br>13,389 Profiles across 43 Categories] --> B[🔒 Privacy-Preserving Preprocessing<br>PII Masking: Emails, Phones, URLs]
+    B --> C[🧠 Dense Embeddings Model<br>sentence-transformers/all-MiniLM-L6-v2]
+    C --> D[(🗄️ ChromaDB Vector Database<br>HNSW Cosine Metric Index)]
+    
+    Q[📋 Target Job Description / Query] --> S[🔍 Semantic Similarity Search]
+    D --> S
+    
+    S -->|Top-K Candidate Pool| J[🤖 LLM-as-a-Judge<br>Ollama / Llama2:7b Skill Extraction & Re-Ranking]
+    J --> R[🏆 Ranked Candidate Shortlist<br>Fit Metric + Explainable Justification]
+    
+    style A fill:#f8f9fa,stroke:#6c757d,stroke-width:1px
+    style B fill:#e3f2fd,stroke:#1976d2,stroke-width:1px
+    style C fill:#fff3e0,stroke:#f57c00,stroke-width:1px
+    style D fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style Q fill:#f3e5f5,stroke:#7b1fa2,stroke-width:1px
+    style S fill:#e0f7fa,stroke:#0097a7,stroke-width:1px
+    style J fill:#fbe9e7,stroke:#d84315,stroke-width:2px
+    style R fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 ```
-                                      ┌────────────────────────┐
-                                      │  Raw Resumes (13.5k)   │
-                                      └───────────┬────────────┘
-                                                  │
-                                                  ▼
-                                      ┌────────────────────────┐
-                                      │   PII Masking & Clean  │
-                                      │ (Emails, Phones, URLs) │
-                                      └───────────┬────────────┘
-                                                  │
-                                                  ▼
-                                      ┌────────────────────────┐
-                                      │ Dense Embeddings Model │
-                                      │  (all-MiniLM-L6-v2)    │
-                                      └───────────┬────────────┘
-                                                  │
-                                                  ▼
-                                      ┌────────────────────────┐
-                                      │   ChromaDB Vector DB   │
-                                      │   (HNSW Cosine Index)  │
-                                      └───────────┬────────────┘
-                                                  │
-[Job Description / Query] ────────► [Semantic Search]
-                                                  │
-                                                  ▼  Top-K Candidates
-                                      ┌────────────────────────┐
-                                      │    LLM-as-a-Judge      │
-                                      │   (Skill Extraction &  │
-                                      │  Relevance Re-Ranking) │
-                                      └───────────┬────────────┘
-                                                  │
-                                                  ▼
-                                      ┌────────────────────────┐
-                                      │ Ranked Candidate List  │
-                                      │  + Scored Fit Metric   │
-                                      └────────────────────────┘
-```
-<img width="471" height="598" alt="image" src="https://github.com/user-attachments/assets/02677b65-5194-44a6-952c-4f704ce3d5cb" />
 
 ---
 
