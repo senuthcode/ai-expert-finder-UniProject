@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1001",
+    "category": "React Developer",
+    "skills": ["React", "TypeScript", "Redux", "Next.js", "Jest"],
+    "experience_years": 4,
+    "summary": "Frontend software engineer specialized in React, Next.js, and modern TypeScript architecture."
+  },
+  {
+    "id": "1002",
+    "category": "Java Developer",
+    "skills": ["Java", "Spring Boot", "Kafka", "PostgreSQL", "Docker"],
+    "experience_years": 5,
+    "summary": "Backend engineer building distributed services and event-driven architectures with Spring Boot."
+  },
+  {
+    "id": "1003",
+    "category": "Data Science",
+    "skills": ["Python", "PyTorch", "ChromaDB", "Transformers", "SQL"],
+    "experience_years": 3,
+    "summary": "Machine learning practitioner with expertise in semantic search, LLM re-ranking, and vector embeddings."
+  }
+]
