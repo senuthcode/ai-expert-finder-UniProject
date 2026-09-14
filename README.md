@@ -34,7 +34,7 @@ Evaluated across **13,389 resumes** spanning **43 job categories**:
 ---
 
 ## 📂 Repository Structure
-```text
+
 ai-expert-finder/
 ├── src/
 │   ├── preprocessing.py    # PII masking (emails, phones, URLs)
@@ -46,3 +46,30 @@ ai-expert-finder/
 ├── demo.py                 # Interactive CLI pipeline demo
 ├── requirements.txt        # Python dependencies
 └── LICENSE                 # MIT License
+
+---
+
+## 🚀 Quickstart Guide
+
+### 1. Clone & Setup Virtual Environment
+
+git clone https://github.com/YOUR_USERNAME/ai-expert-finder.git
+cd ai-expert-finder
+
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+
+### 2. Run the Interactive CLI Demo
+Test the end-to-end pipeline (PII redaction, vector matching, and scoring) immediately:
+
+python demo.py --query "React frontend developer with TypeScript and state management"
+
+
+---
+
+## 📜 License
+Distributed under the MIT License. See `LICENSE` for details.
+
+<img width="471" height="353" alt="image" src="https://github.com/user-attachments/assets/7848621f-bd10-49eb-80a5-e6a8eccdeab3" />
