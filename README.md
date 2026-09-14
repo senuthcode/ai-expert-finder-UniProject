@@ -35,6 +35,7 @@ Evaluated across **13,389 resumes** spanning **43 job categories**:
 
 ## 📂 Repository Structure
 
+```text
 ai-expert-finder/
 ├── src/
 │   ├── preprocessing.py    # PII masking (emails, phones, URLs)
@@ -46,6 +47,7 @@ ai-expert-finder/
 ├── demo.py                 # Interactive CLI pipeline demo
 ├── requirements.txt        # Python dependencies
 └── LICENSE                 # MIT License
+```
 
 ---
 
